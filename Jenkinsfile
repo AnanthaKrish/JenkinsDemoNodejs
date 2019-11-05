@@ -1,5 +1,5 @@
 pipeline {
-  agent { label 'docker' }
+  agent any
   stages {
     stage('build') {
       steps {
@@ -9,9 +9,11 @@ pipeline {
   }
   post {
     always {
-      script {
+      echo 'One way or another, I have finished' 
+      //script {
         //sh "curl -v 'https://jsonplaceholder.typicode.com/posts/1'"
-      }
+        //echo 'One way or another, I have finished' 
+     // }
     }
   }
 }
