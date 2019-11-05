@@ -10,7 +10,7 @@ pipeline {
   post {
     always {
       script {
-        sh "curl -v 'https://jsonplaceholder.typicode.com/posts/1'"
+        //sh "curl -v 'https://jsonplaceholder.typicode.com/posts/1'"
       }
     }
   }
