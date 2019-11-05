@@ -1,5 +1,7 @@
 pipeline {
   agent any
+  def json = '{"message":"hahah jenkins"}'
+
   stages {
     stage('build') {
       steps {
