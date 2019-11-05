@@ -1,7 +1,7 @@
 pipeline {
   agent any
   environment {
-    json = {"message":"hahah jenkins"}
+    json = '{"message":"hahah jenkins"}'
   }
   stages {
     stage('build') {
