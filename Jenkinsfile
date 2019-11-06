@@ -10,19 +10,20 @@ pipeline {
         echo "build HA HA HA "
         echo "Post-Build result 1: ${currentBuild.displayName}"
         echo "Init currentResult 1 : ${currentBuild.currentResult}"
-        script {
+        echo "all details : ${currentBuild}"
+        /*script {
           sh """
              curl -H 'Content-Type: application/json' \
              -u 2957b1a9-7cde-45c4-82c5-7941f40e2c0a:T0MdYldhEDMkiTi0mRnvYe1pWYy56SaC0li4fnFhVBxcUJvVWPQ2Cc2EMYPNP10a \
-             -d '{"message":"started build for ${currentBuild.displayName}", "status":"STARTED"}' \
+             -d '{"message":"Started build for ${currentBuild.displayName}", "status":"STARTED"}' \
              -X POST https://eu-de.functions.cloud.ibm.com/api/v1/namespaces/agirijak%40in.ibm.com_Kgspace/triggers/testDemoTrigger?blocking=true 
              """
-      }
+      }*/
       }
     }
   }
   post {
-    always {
+    /*always {
       echo 'One way or another, I have finished' 
       echo "Post-Build result 2 : ${currentBuild.result}"
       echo "Init currentResult 2: ${currentBuild.currentResult}"
@@ -30,10 +31,10 @@ pipeline {
         sh """
            curl -H 'Content-Type: application/json' \
            -u 2957b1a9-7cde-45c4-82c5-7941f40e2c0a:T0MdYldhEDMkiTi0mRnvYe1pWYy56SaC0li4fnFhVBxcUJvVWPQ2Cc2EMYPNP10a \
-           -d '{"message":"started build for ${currentBuild.displayName}","status":"${currentBuild.currentResult}"}' \
+           -d '{"message":"Finished build for ${currentBuild.displayName}","status":"${currentBuild.currentResult}"}' \
            -X POST https://eu-de.functions.cloud.ibm.com/api/v1/namespaces/agirijak%40in.ibm.com_Kgspace/triggers/testDemoTrigger?blocking=true 
            """
       }
-    }
+    }*/
   }
 }
