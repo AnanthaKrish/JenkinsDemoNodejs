@@ -10,7 +10,7 @@ pipeline {
         echo "build HA HA HA "
         echo "Post-Build result 1: ${currentBuild.displayName}"
         echo "Init currentResult 1 : ${currentBuild.currentResult}"
-        echo "all details : ${envGIT_BRANCH}, ${env.BUILD_NUMBER}, ${env.BUILD_TAG}"
+        echo "all details : ${GIT_BRANCH}, ${env.BUILD_NUMBER}, ${env.BUILD_TAG}"
         echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
         /*script {
           sh """
