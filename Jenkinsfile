@@ -36,7 +36,7 @@ pipeline {
       }
     } 
   }
-  post {
+  /*post {
     always {
       echo 'One way or another, I have finished' 
       echo "Post-Build result 2 : ${currentBuild.result}"
@@ -50,5 +50,5 @@ pipeline {
            """
       }
     }
-  }
+  }*/
 }
