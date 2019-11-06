@@ -7,6 +7,7 @@ pipeline {
   stages {
 
     stage('Sending message') {
+    steps {
     script {
           sh """
              curl -H 'Content-Type: application/json' \
@@ -14,6 +15,7 @@ pipeline {
              -d '{"message":"Started build for ${env.BUILD_TAG}", "status":"STARTED"}' \
              -X POST https://eu-de.functions.cloud.ibm.com/api/v1/namespaces/agirijak%40in.ibm.com_Kgspace/triggers/testDemoTrigger?blocking=true 
              """
+      }
       }
     }
     stage('Cloning Git') {
