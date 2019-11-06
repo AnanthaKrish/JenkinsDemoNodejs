@@ -7,6 +7,7 @@ pipeline {
     stage('build') {
       steps {
         echo "build HA HA HA "
+        echo "Post-Build result 1: ${currentBuild.result}"
         echo "Init currentResult 1 : ${currentBuild.currentResult}"
 
       }
@@ -15,6 +16,7 @@ pipeline {
   post {
     always {
       echo 'One way or another, I have finished' 
+      echo "Post-Build result 2 : ${currentBuild.result}"
       echo "Init currentResult 2: ${currentBuild.currentResult}"
      /* script {
         sh """
