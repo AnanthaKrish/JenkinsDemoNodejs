@@ -41,6 +41,7 @@ pipeline {
       echo 'One way or another, I have finished' 
       echo "Post-Build result 2 : ${currentBuild.result}"
       echo "Init currentResult 2: ${currentBuild.currentResult}"
+      echo "Init currentResult 2: ${currentBuild.currentResult}"
       // script {
       //   sh """
       //      curl -H 'Content-Type: application/json' \
