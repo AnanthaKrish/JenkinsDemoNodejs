@@ -22,8 +22,8 @@ pipeline {
       }
     }
   }
-  post {
-    /*always {
+ /* post {
+    always {
       echo 'One way or another, I have finished' 
       echo "Post-Build result 2 : ${currentBuild.result}"
       echo "Init currentResult 2: ${currentBuild.currentResult}"
@@ -35,6 +35,6 @@ pipeline {
            -X POST https://eu-de.functions.cloud.ibm.com/api/v1/namespaces/agirijak%40in.ibm.com_Kgspace/triggers/testDemoTrigger?blocking=true 
            """
       }
-    }*/
-  }
+    }
+  }*/
 }
