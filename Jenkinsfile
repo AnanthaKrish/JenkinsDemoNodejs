@@ -10,7 +10,7 @@ pipeline {
         echo "build HA HA HA "
         echo "Post-Build result 1: ${currentBuild.displayName}"
         echo "Init currentResult 1 : ${currentBuild.currentResult}"
-        echo "all details : ${currentBuild}"
+        echo "all details : ${GIT_BRANCH}"
         /*script {
           sh """
              curl -H 'Content-Type: application/json' \
