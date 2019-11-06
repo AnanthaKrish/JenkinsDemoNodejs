@@ -1,9 +1,8 @@
 pipeline {
-  agent any
   environment {
     json = '{"message":"hahah jenkins 34"}'
   }
-  tools {nodejs "node"}
+  agent { docker { image 'node:6.3' } }
   stages {
 
     stage('Sending message') {
