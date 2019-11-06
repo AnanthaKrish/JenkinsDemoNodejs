@@ -7,7 +7,7 @@ pipeline {
     stage('build') {
       steps {
         echo "build HA HA HA "
-        echo "Post-Build result 1: ${currentBuild.result}"
+        echo "Post-Build result 1: ${currentBuild.displayName}"
         echo "Init currentResult 1 : ${currentBuild.currentResult}"
 
       }
