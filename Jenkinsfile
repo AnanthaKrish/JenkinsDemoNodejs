@@ -11,16 +11,16 @@ pipeline {
     script {
           sh """
              curl -H 'Content-Type: application/json' \
-             -u 2957b1a9-7cde-45c4-82c5-7941f40e2c0a:T0MdYldhEDMkiTi0mRnvYe1pWYy56SaC0li4fnFhVBxcUJvVWPQ2Cc2EMYPNP10a \
-             -d '{"message":"Started build for ${env.BUILD_TAG}", "status":"STARTED"}' \
-             -X POST https://eu-de.functions.cloud.ibm.com/api/v1/namespaces/agirijak%40in.ibm.com_Kgspace/triggers/testDemoTrigger?blocking=true 
+             -u xxxxxxx-c2f0-xxxxxxx-92b0-xxxxxxx:ZMdVKJJIWSnszslxxxxxxxX6884zZ0VvzxxxxxxxZAIK89C \
+             -d '{"message":"Started build for ${env.BUILD_TAG}", "status":"STARTED", "tag":"${env.BUILD_ID}${env.BUILD_ID}", "idValue":"${env.BUILD_ID}"}' \
+             -X POST https://us-south.functions.cloud.ibm.com/api/v1/namespaces/axxxxxxx%40.xxxxxxx.com_demo/actions/SendBuildRepot?blocking=true
              """
       }
       }
     }
     stage('Cloning Git') {
       steps {
-        git 'https://github.com/AnanthaKrish/JenkinsDemoNodejs'
+        git 'https://github.ibm.com/agirijak/JenkinsDemoNodejs.git'
       }
     }
  
@@ -38,18 +38,20 @@ pipeline {
   }
   post {
     always {
-      echo 'One way or another, I have finished' 
+      echo 'One way or another, I have finished execution' 
       echo "Post-Build result 2 : ${currentBuild.result}"
       echo "Init currentResult 2: ${currentBuild.currentResult}"
       echo "Init currentResult 2: ${currentBuild.currentResult}"
-      // script {
-      //   sh """
-      //      curl -H 'Content-Type: application/json' \
-      //      -u 2957b1a9-7cde-45c4-82c5-7941f40e2c0a:T0MdYldhEDMkiTi0mRnvYe1pWYy56SaC0li4fnFhVBxcUJvVWPQ2Cc2EMYPNP10a \
-      //      -d '{"message":"Finished build for ${env.BUILD_TAG}","status":"${currentBuild.currentResult}"}' \
-      //      -X POST https://eu-de.functions.cloud.ibm.com/api/v1/namespaces/agirijak%40in.ibm.com_Kgspace/triggers/testDemoTrigger?blocking=true 
-      //      """
-      // }
+      echo "all details : ${GIT_BRANCH}, ${env.BUILD_NUMBER}, ${env.BUILD_TAG}"
+      echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
+      script {
+        sh """
+           curl -H 'Content-Type: application/json' \
+           -u xxxxxxx-c2f0-xxxxxxx-92b0-xxxxxxx:ZMdVKJJIWSnszslxxxxxxxX6884zZ0VvzxxxxxxxZAIK89C \
+           -d '{"message":"Finished build for ${env.BUILD_TAG}","status":"${currentBuild.currentResult}", "tag":"${env.BUILD_ID}${env.BUILD_ID}", "idValue":"${env.BUILD_ID}"}' \
+           -X POST https://us-south.functions.cloud.ibm.com/api/v1/namespaces/axxxxxxx%40.xxxxxxx.com_demo/actions/SendBuildRepot?blocking=true
+           """
+      }
     }
   }
 }
