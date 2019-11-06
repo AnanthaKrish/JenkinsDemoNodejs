@@ -6,7 +6,7 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        echo "build HA HA HA ${BUILD_STATUS}"
+        echo "build HA HA HA "
       }
     }
   }
