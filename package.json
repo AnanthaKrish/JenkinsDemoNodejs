@@ -1,0 +1,27 @@
+{
+  "name": "testapp",
+  "version": "1.0.0",
+  "description": "Sample app for IBM Push Notifications service demo",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js",
+    "test": "jasmine-node spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnanthaKrish/JenkinsDemoNodejs.git"
+  },
+  "author": "Anantha Krishnan K G",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AnanthaKrish/JenkinsDemoNodejs/issues"
+  },
+  "homepage": "https://github.com/AnanthaKrish/JenkinsDemoNodejs#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "jasmine-node": "^3.0.0"
+  }
+}
