@@ -7,12 +7,15 @@ pipeline {
     stage('build') {
       steps {
         echo "build HA HA HA "
+        echo "Init currentResult 1 : ${currentBuild.currentResult}"
+
       }
     }
   }
   post {
     always {
       echo 'One way or another, I have finished' 
+      echo "Init currentResult 2: ${currentBuild.currentResult}"
      /* script {
         sh """
            curl -H 'Content-Type: application/json' \
